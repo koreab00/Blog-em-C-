@@ -1,0 +1,14 @@
+{
+  "version": 2,
+  "dgSpecHash": "eScIYBVwLN8=",
+  "success": true,
+  "projectFilePath": "/Users/pauloalhadef/Documents/ProjetosVSC/Blog/Blog.csproj",
+  "expectedPackageFiles": [
+    "/Users/pauloalhadef/.nuget/packages/dapper/2.1.66/dapper.2.1.66.nupkg.sha512",
+    "/Users/pauloalhadef/.nuget/packages/dapper.contrib/2.0.78/dapper.contrib.2.0.78.nupkg.sha512",
+    "/Users/pauloalhadef/.nuget/packages/microsoft.extensions.dependencyinjection.abstractions/8.0.2/microsoft.extensions.dependencyinjection.abstractions.8.0.2.nupkg.sha512",
+    "/Users/pauloalhadef/.nuget/packages/microsoft.extensions.logging.abstractions/8.0.2/microsoft.extensions.logging.abstractions.8.0.2.nupkg.sha512",
+    "/Users/pauloalhadef/.nuget/packages/npgsql/9.0.3/npgsql.9.0.3.nupkg.sha512"
+  ],
+  "logs": []
+}
