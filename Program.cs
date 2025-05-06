@@ -1,69 +1,56 @@
-﻿using System.Security.Cryptography.X509Certificates;
-using blog.Models;
-using Blog.Models;
-using Blog.Repositories;
-using Dapper.Contrib.Extensions;
+﻿using Blog;
+using Blog.Screens.TagScreens;
 using Npgsql;
 
 internal class Program
 {
-    private const string CONNECTION_STRING = "Host=localhost;Port=5432;Database=blog;Username=admin;Password=SenhaForte123";
+    // private const string CONNECTION_STRING = "Host=localhost;Port=5432;Database=blog;Username=admin;Password=SenhaForte123";
 
     private static void Main(string[] args)
     {
-        var connection = new NpgsqlConnection(CONNECTION_STRING);
-        connection.Open();
-        ReadUsersWithRoles(connection);
-        //CreateUsers(connection);
-        //ReadRoles(connection);
-        //ReadTags(connection);
-        //CreateUser();
-        // UpdateUser();
-        // DeleteUser();
-        connection.Close();
+        // Database.Connection = new NpgsqlConnection(CONNECTION_STRING);
+        Database.Connection.Open();
+
+        Load();
+
+        Console.ReadKey();
+        Database.Connection.Close();
     }
 
-    public static void ReadUsersWithRoles(NpgsqlConnection connection)
+    private static void Load()
     {
-        var repository = new UserRepository(connection);
-        var items = repository.GetWithRoles();
+        Console.Clear();
+        Console.WriteLine("Meu Blog");
+        Console.WriteLine("--------------------");
+        Console.WriteLine("O que deseja fazer?");
+        Console.WriteLine();
+        Console.WriteLine("1 - Gestão de usuário");
+        Console.WriteLine("2 - Gestão de perfil");
+        Console.WriteLine("3 - Gestão de categoria");
+        Console.WriteLine("4 - Gestão de tag");
+        Console.WriteLine("5 - Vincular perfil/usuário");
+        Console.WriteLine("6 - Vincular post/tag");
+        Console.WriteLine("7 - Relatórios");
+        Console.WriteLine();
+        Console.WriteLine();
+        var option = short.Parse(Console.ReadLine()!);
 
-        foreach (var item in items)
+        switch (option)
         {
-            Console.WriteLine($"Name: {item.nome}");
-            foreach (var role in item.Roles)
-                Console.WriteLine($" - Role: {role.nome}");
+            case 1:
+                MenuTagScreen.Load();
+                break;
+            case 2:
+                MenuTagScreen.Load();
+                break;
+            case 3:
+                MenuTagScreen.Load();
+                break;
+            case 4:
+                MenuTagScreen.Load();
+                break;
+            default: Load(); break;
         }
-    }
 
-    public static void CreateUsers(NpgsqlConnection connection)
-    {
-        var user = new Usuario
-        {
-            nome = "Lucas",
-            email = "lucas@email.com",
-            bio = "Lucas bio",
-            imagem = "Lucas imagem",
-            passwordhash = "hash",
-            slug = "Lucas slug"
-        };
-        var repository = new Repository<Usuario>(connection);
-        repository.Create(user);
-    }
-
-    public static void ReadRoles(NpgsqlConnection connection)
-    {
-        var repository = new Repository<Role>(connection);
-        var items = repository.Get();
-        foreach (var item in items)
-            Console.WriteLine($"Id: {item.id}, Name: {item.nome}, Slug: {item.slug}");
-    }
-
-    public static void ReadTags(NpgsqlConnection connection)
-    {
-        var repository = new Repository<Tag>(connection);
-        var items = repository.Get();
-        foreach (var item in items)
-            Console.WriteLine($"Id: {item.id}, Name: {item.nome}, Slug: {item.slug}");
     }
 }

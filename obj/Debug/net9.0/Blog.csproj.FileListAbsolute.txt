@@ -19,3 +19,4 @@
 /Users/pauloalhadef/Documents/ProjetosVSC/Blog/obj/Debug/net9.0/Blog.pdb
 /Users/pauloalhadef/Documents/ProjetosVSC/Blog/obj/Debug/net9.0/Blog.genruntimeconfig.cache
 /Users/pauloalhadef/Documents/ProjetosVSC/Blog/obj/Debug/net9.0/ref/Blog.dll
+/Users/pauloalhadef/Documents/ProjetosVSC/Blog/obj/Debug/net9.0/Blog.sourcelink.json
